@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.principal')
 
-        <title>Laravel</title>
+@section('titulo', 'Home')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@section('navbar')
+    <!--Parent serve para complementar o modelo (adicionar botão, lista...)-->
+    @parent
+    <p>Nova navbar</p>
+@endsection
 
-        <!-- Styles -->
-        <style>
-
-        </style>
-    </head>
-    <body>
-        <h1>Home</h1>
-    </body>
-</html>
+@section('conteudo')
+    <p>Conteudo da Home</p>
+@endsection
