@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-require __DIR__.'/../vendor/autoload.php';
+
+$basePath = 'App\Http\Controllers\\';
 
 Route::get('/', function () {
     return view('welcome');
@@ -67,12 +68,16 @@ Route::group(['prefix'=>'admin'], function(){
 });
 
 //Definindo Rota que passa pelo Controller (@nome do método da Controller)
-Route::get('aluno', 'App\Http\Controllers\Aluno\AlunoController@index');
+Route::get('aluno', $basePath.'Aluno\AlunoController@index');
 
 //Definindo apelido para a rota do Controller
-Route::get('livro/lista',['uses'=>'LivroController@index', 'as'=>'livro.index']);
+Route::get('livro/lista',['uses'=> $basePath.'LivroController@index', 'as'=>'livro.index']);
 
-//
-Route::controller('ProdutoController');
+Route::get('home', function() {
+    return view('home');
+});
 
-Route::resource('produto', 'App\Http\Controllers\ProdutoController');
+Route::get('/produto', $basePath.'ProdutoController@getIndex');
+
+
+
