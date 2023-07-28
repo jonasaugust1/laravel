@@ -74,7 +74,16 @@ Route::get('aluno', $basePath.'Aluno\AlunoController@index');
 Route::get('livro/lista',['uses'=> $basePath.'LivroController@index', 'as'=>'livro.index']);
 
 Route::get('home', function() {
-    return view('home');
+    $usuarios = array(
+        ["nome"=> "Gustavo"],
+        ["nome"=> "Ana"],
+        ["nome"=> "Cecilia"],
+        ["nome"=> "Rodrigo"],
+    );
+
+    $livros = [];
+
+    return view('home', compact('usuarios', 'livros'));
 });
 
 Route::get('/produto', $basePath.'ProdutoController@getIndex');
