@@ -88,5 +88,7 @@ Route::get('home', function() {
 
 Route::get('/produto', $basePath.'ProdutoController@getIndex');
 
+Route::get('usuario', ['uses'=>$basePath.'UsuarioController@index', 'as'=>'usuario']);
+
 
 
