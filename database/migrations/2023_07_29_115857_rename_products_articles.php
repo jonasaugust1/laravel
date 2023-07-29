@@ -8,15 +8,11 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * https://laravel.com/docs/10.x/migrations
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('description');
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            Schema::rename('products', 'articles');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::table('products', function (Blueprint $table) {
+            Schema::rename('articles', 'products');
+        });
     }
 };
